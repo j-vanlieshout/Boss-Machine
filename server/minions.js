@@ -10,7 +10,9 @@ const {
     deleteAllFromDatabase,
   } = require('./db')
 
-minionsRouter.get()
+minionsRouter.get('./',(req,res,next)=> {
+  res = getAllFromDatabase('minions')
+})
 
 
 module.exports = minionsRouter;

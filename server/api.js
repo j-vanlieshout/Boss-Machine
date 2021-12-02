@@ -1,6 +1,7 @@
 const express = require('express');
+const app = require('../server');
 const apiRouter = express.Router();
-//const minionsRouter = (require('./minions'))
+const minionsRouter = (require('./minions'))
 const {
     createMeeting,
     getAllFromDatabase,
@@ -13,7 +14,7 @@ const {
 
 
 module.exports = apiRouter;
-
+app.use('./minions', minionsRouter);
 
 
 // - `/api/ideas`
