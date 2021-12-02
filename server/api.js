@@ -1,21 +1,17 @@
 const express = require('express');
-const app = require('../server');
 const apiRouter = express.Router();
-const minionsRouter = (require('./minions'))
-const {
-    createMeeting,
-    getAllFromDatabase,
-    getFromDatabaseById,
-    addToDatabase,
-    updateInstanceInDatabase,
-    deleteFromDatabasebyId,
-    deleteAllFromDatabase,
-  } = require('./db')
+const minionsRouter = require('./minions.js')
 
+
+
+// app.get('/api/minions',(req,res,next)=>{
+//   toReturn = getAllFromDatabase('minions');
+//   res.status(200).send(toReturn);
+// })
+
+apiRouter.use('/minions', minionsRouter);
 
 module.exports = apiRouter;
-app.use('./minions', minionsRouter);
-
 
 // - `/api/ideas`
 //   - GET /api/ideas to get an array of all ideas.
@@ -27,3 +23,5 @@ app.use('./minions', minionsRouter);
 //   - GET /api/meetings to get an array of all meetings.
 //   - POST /api/meetings to create a new meeting and save it to the database.
 //   - DELETE /api/meetings to delete _all_ meetings from the database.
+
+
